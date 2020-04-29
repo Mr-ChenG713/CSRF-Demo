@@ -39,32 +39,69 @@
     }
   </style>
 </head>
+
 <body>
   <div class="header">
-    <h1>Informação de Utilizador</h1>
+    <h1>Dados Pessoais</h1>
     <div class="user-area">
       <div class="current-user">
         <span class="current-user-name"></span>
-        <a href="javascript:void(0)" id="logout-link">Logout</a>
+        <a href="javascript:void(0)" id="logout-link">Sair</a>
       </div>
-      <a class="login-link" href="/login.html">Login</a>
+      <a class="login-link" href="/login.html">Entrar</a>
     </div>
   </div>
+
   <div class="wrapper">
     <div id="user" class="box">
-      <h2>Dados pessoais</h2>
-      <p><img class="user-avatar" src /></p>
+      <h2>Dados Pessoais</h2>
+      <p><img class="user-avatar" src= /></p>
       <p>Nome: <span class="user-name"></sapn></p>
     </div>
-  
+    
     <div class="box">
-      <a href="/bank.html">Centro Banco</a>
+      <a href="/bank.html">Banco</a>
     </div>
+    
   </div>
+
   <script src="/js/common.js"></script>
   <script src="/js/jquery.js"></script>
-  <script>
 
+  <script>
+    
+    $(function () {
+
+      // Aparecer nome no canto superior à direita
+      $.ajax({
+        type:'get',
+        url:'/api/get_userinfo',
+        success: function (data) {
+          if (data.is_login) {
+            var username = data.username;
+            if (username) {
+              $('.current-user').show();
+              $('.current-user-name').text(username);
+              $('.login-link').hide();
+            }
+          }
+        }
+      })
+
+      $('#logout-link').on('click', function() {
+        $.ajax({
+          type:'post',
+          url:'/api/logout',
+          success: function (data) {
+            if (data.success) {
+              location.reload();
+            } else {
+              alert(data.message);
+            }
+          }
+        })
+      });
+    });
   </script>
 </body>
 </html>

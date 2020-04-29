@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pagina de Login/title>
+  <title>Pagina de Login</title>
   <link rel="stylesheet" href="/css/common.css">
   <style>
     #login {
@@ -20,9 +20,9 @@
 <body>
   <h1>Pagina de Login</h1>
   <div id="login">
-    <p>username: <input type="username" class="username" /></p>
-    <p>password: <input type="password" class="password" /></p>
-    <button id="js-login" class="btn" type="submit"/>Login</button>
+    <p>Username: <input type="username" class="username" /></p>
+    <p>Password: <input type="password" class="password" /></p>
+    <button id="js-login" class="btn" type="submit"/>Entrar</button>
   </div>
   <script src="/js/jquery.js"></script>
 
@@ -56,7 +56,7 @@
           } else {
             alert(data.message);
           }
-          // 清空评论文本框
+          
           $('.username').val('');
           $('.password').val('');
         }

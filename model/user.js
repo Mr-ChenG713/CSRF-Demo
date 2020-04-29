@@ -6,15 +6,15 @@ const router = require('koa-router')();
 const Users = [{
   username: 'badboy',
   avatar: '/imgs/hacker.jpg',
-  password: '789'
+  password: '7123456'
 },{
   username: 'joao',
   avatar: '/imgs/user.jpg',
-  password: '456'
+  password: '123456'
 },{
-  username: 'joaquim',
+  username: 'andre',
   avatar: '/imgs/user.jpg',
-  password: '123'
+  password: '123456'
 }];
 
 // Estado atual do tilizador em login

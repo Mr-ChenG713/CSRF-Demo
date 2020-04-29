@@ -99,7 +99,7 @@ router.post('/transfer_money', async ( ctx )=>{
  * Adicionar referer
  */
 
-/* router.post('/transfer_money', async ( ctx )=>{
+ /*router.post('/transfer_money', async ( ctx )=>{
    const user = userModel.checkUserByCookie(ctx);
    const postData = ctx.request.body;
 
