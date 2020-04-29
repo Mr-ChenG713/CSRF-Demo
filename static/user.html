@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Centro Pessoal</title>
+  <link rel="stylesheet" href="/css/common.css">
+  <style>
+    .user-avatar {
+      width: 80px;
+      height: 100px;
+    }
+    .box {
+      padding: 10px 30px;
+      border: 1px solid #999;
+      width: 600px;
+      margin: 10px auto;
+      position: relative
+    }
+    #js-transferMoney {
+      display: block;
+      width: 150px;
+      height: 50px;
+      margin-top: 20px;
+      font-size: 20px;
+      background: #fff;
+      border: 2px solid #333;
+    }
+    .user-area {
+      position: absolute;
+      top: 40px;
+      right: 30px;
+    }
+    .current-user {
+      display: none;
+    }
+    .current-user-name {
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>Informação de Utilizador</h1>
+    <div class="user-area">
+      <div class="current-user">
+        <span class="current-user-name"></span>
+        <a href="javascript:void(0)" id="logout-link">Logout</a>
+      </div>
+      <a class="login-link" href="/login.html">Login</a>
+    </div>
+  </div>
+  <div class="wrapper">
+    <div id="user" class="box">
+      <h2>Dados pessoais</h2>
+      <p><img class="user-avatar" src /></p>
+      <p>Nome: <span class="user-name"></sapn></p>
+    </div>
+  
+    <div class="box">
+      <a href="/bank.html">Centro Banco</a>
+    </div>
+  </div>
+  <script src="/js/common.js"></script>
+  <script src="/js/jquery.js"></script>
+  <script>
+
+  </script>
+</body>
+</html>

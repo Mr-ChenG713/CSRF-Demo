@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pagina de Login/title>
+  <link rel="stylesheet" href="/css/common.css">
+  <style>
+    #login {
+      width: 400px;
+      border: 1px solid #dfdfdf;
+      padding: 10px;
+      font-size: 18px;
+      margin: 50px auto;
+      background: #f5f5f5;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Pagina de Login</h1>
+  <div id="login">
+    <p>username: <input type="username" class="username" /></p>
+    <p>password: <input type="password" class="password" /></p>
+    <button id="js-login" class="btn" type="submit"/>Login</button>
+  </div>
+  <script src="/js/jquery.js"></script>
+
+  <script>
+    // Aparecer nome no lcanto superior à direita
+    $.ajax({
+      type:'get',
+      url:'/api/get_userinfo',
+      success: function (data) {
+        if (data.is_login) {
+          var username = data.username;
+          alert('Já tem sessão iniciada');
+          location.href = `/user.html?username=${username}`;
+        }
+      }
+    })
+
+    $('#js-login').on('click', function() {
+      var username = $('.username').val();
+      var password = $('.password').val();
+      $.ajax({
+        type:'post',
+        url:'/api/login',
+        data: {
+          username: username,
+          password: password,
+        },
+        success:function(data){
+          if (data.success) {
+            location.href = `/user.html?username=${username}`;
+          } else {
+            alert(data.message);
+          }
+          // 清空评论文本框
+          $('.username').val('');
+          $('.password').val('');
+        }
+     });
+    });
+    
+  </script>
+</body>
+</html>

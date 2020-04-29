@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/common.css">
+  <title>Pagina do Banco</title>
+  <style>
+    .user-avatar {
+      width: 80px;
+      height: 100px;
+    }
+    .box {
+      padding: 10px 30px;
+      border: 1px solid #999;
+      width: 600px;
+      margin: 10px auto;
+      position: relative
+    }
+    input {
+      width: 140px;
+      height: 30px;
+      font-size: 24px;
+      padding: 10px;
+    }
+    #js-transferMoney {
+      display: block;
+      width: 150px;
+      height: 50px;
+      margin-top: 20px;
+      font-size: 20px;
+      background: #fff;
+      border: 2px solid #333;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Banco</h1>
+  <div id="user" class="box">
+    <h2>Dados Pessoais</h2>
+    <p><img class="user-avatar" src /></p>
+    <p>Nome: <span class="user-name"></sapn></p>
+    <p>Saldo bancario:  €<span class="user-money"></sapn></p>
+  </div>
+
+  <div id="user" class="box">
+    <h2>Transferencia Bancaria</h2>
+    <p>Nome: <input class="username" /></p>
+    <p>Montante: <input type="number" class="money" /></p>
+
+    <button id="js-transferMoney" type="submit"/>Confirmar</button>
+  </div>
+
+  <script src="/js/jquery.js"></script>
+  <script>
+    $(function () {
+      $.ajax({
+        type:'get',
+        url:'/api/get_user_money',
+        success:function(data){
+          
+          if (data.success) {
+            $('.user-avatar').attr('src', data.user.avatar);
+            $('.user-name').text(data.user.username);
+            $('.user-money').text(data.money);
+          } else if (data.retcode === -1){
+            alert('Não tem sessão iniciada');
+            location.href = 'login.html';
+          }
+        }
+      });
+      $('#js-transferMoney').on('click', function() {
+        var username = $('.username').val();
+        var money = $('.money').val();
+        if (!username || !money) {
+          return;
+        }
+        $.ajax({
+          type:'post',
+          url:'/api/transfer_money',
+          data: {
+            username: username,
+            money: money
+          },
+          success:function(data){
+            
+            if (data.success) {
+              alert('Transferencia com sucesso');
+              location.reload();
+            } else {
+              alert('Erro:' + data.message);
+            }
+          }
+        });
+      });
+    });
+  </script>
+</body>
