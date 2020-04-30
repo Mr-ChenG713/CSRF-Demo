@@ -6,7 +6,7 @@ const router = require('koa-router')();
 let banks = {
   'joao': 10000,
   'badboy': 100,
-  'joaquim': 4000
+  'andre': 4000
 };
 
 const BankModel = {
