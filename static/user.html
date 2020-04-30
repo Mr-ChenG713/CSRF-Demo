@@ -72,6 +72,21 @@
     
     $(function () {
 
+      $.ajax({
+        type:'get',
+        url:'/api/get_user_money',
+        success:function(data){
+          
+          if (data.success) {
+            $('.user-avatar').attr('src', data.user.avatar);
+            $('.user-name').text(data.user.username);
+          } else if (data.retcode === -1){
+            alert('Não tem sessão iniciada');
+            location.href = 'login.html';
+          }
+        }
+      });
+
       // Aparecer nome no canto superior à direita
       $.ajax({
         type:'get',

@@ -6,7 +6,7 @@ const router = require('koa-router')();
 const Users = [{
   username: 'badboy',
   avatar: '/imgs/hacker.jpg',
-  password: '7123456'
+  password: '123456'
 },{
   username: 'joao',
   avatar: '/imgs/user.jpg',
