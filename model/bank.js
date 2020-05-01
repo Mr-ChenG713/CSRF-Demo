@@ -5,7 +5,7 @@ const router = require('koa-router')();
 // Montante do utilizador
 let banks = {
   'joao': 10000,
-  'badboy': 100,
+  'hacker': 100,
   'andre': 4000
 };
 

@@ -4,7 +4,7 @@
 const router = require('koa-router')();
 // Lista do utilizador
 const Users = [{
-  username: 'badboy',
+  username: 'hacker',
   avatar: '/imgs/hacker.jpg',
   password: '123456'
 },{
