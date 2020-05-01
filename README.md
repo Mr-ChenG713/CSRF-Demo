@@ -1,6 +1,3 @@
-# CSRF-Demo
-CSRF demonstration
-
 ## CSRF DEMO
 
 Depois de clone, é preciso executar comando `npm install` para instalar os pacotes.
