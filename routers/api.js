@@ -129,13 +129,13 @@ router.post('/transfer_money', async ( ctx )=>{
  * Acrescentar a verificação de token
  */
 
-/* router.post('/transfer_money', async ( ctx )=>{
+ /*router.post('/transfer_money', async ( ctx )=>{
    const user = userModel.checkUserByCookie(ctx);
    const postData = ctx.request.body;
 
    // Verificar token
-   const postToken = postData.token;  // 用户提交的 token
-   const serverToken = userModel.getUserToken(user.username, ctx); // 服务器算的token
+   const postToken = postData.token;  // Enviado pelo utilizador token
+   const serverToken = userModel.getUserToken(user.username, ctx); // Calculado pelo servidor token
    const isTrueToken = postToken === serverToken;
    if (isTrueToken) {
       // Operação transferencia
