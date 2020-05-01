@@ -4,9 +4,9 @@ Depois de clone, é preciso executar comando `npm install` para instalar os paco
 
 ## As contas
 
-* Utilizador 1: andre   password:123456	  montante inicial: 4000
-* Utilizador 2: joao	  password:123456	  montante inicial: 10000
-* Hacker: hacker	      password:123456	  montante inicial: 100
+* Username 1: andre     password:123456	  montante inicial: 4000
+* Username 2: joao      password:123456	  montante inicial: 10000
+* Username 3: hacker    password:123456	  montante inicial: 100
 
 ## Iniciar o Demo normal
 
